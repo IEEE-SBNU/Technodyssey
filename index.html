@@ -333,7 +333,7 @@
             font-family: 'Roboto Slab', serif; /* Or Poppins, try both to see which fits better */
             font-size: 2.5rem; /* Larger font size */
             color: #FFFFFF; /* White color */
-            margin-top: 4rem; /* Space between scrolling text and date */
+            margin-top: 2rem; /* Space between scrolling text and date */
             margin-bottom: 3rem; /* Space between date and countdown */
             font-weight: 700; /* Bolder weight */
             text-shadow: 0 0 8px rgba(255, 255, 255, 0.7), /* White glow */
@@ -456,9 +456,22 @@
                 0 0 40px rgba(16, 185, 129, 0.5);
         }
 
+        /* Slider Glow Border */
+        #default-carousel {
+            position: relative;
+            width: 100%;
+            border-radius: 12px; /* Match your rounded corners */
+            overflow: hidden; /* Ensure shadow doesn't escape corners */
+            box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.5), /* Thin initial border */
+                        0 0 15px rgba(139, 92, 246, 0.4); /* Glow effect */
+            transition: box-shadow 0.3s ease-in-out;
+        }
 
+        #default-carousel:hover {
+            box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.8), /* Brighter on hover */
+                        0 0 25px rgba(139, 92, 246, 0.6); /* Larger glow on hover */
+        }
 
-        
 
         /* Responsive Design */
         /* Base styles are for larger screens, then override for smaller ones */
@@ -695,7 +708,6 @@
                 font-size: 0.95rem;
             }
             
-
             
             .footer-content {
                 flex-direction: column; /* Stack footer links vertically on smallest screens */
@@ -734,13 +746,11 @@
                 <img src="nirma_logo.jpg" alt="Nirma University" class="h-12 sm:h-14 w-auto min-w-[60px] max-w-[90px]">
             </div>
             <div class="flex-1"></div>
-            <!-- Hamburger for mobile -->
             <button class="hamburger flex md:hidden flex-col justify-center items-center w-10 h-10 bg-transparent border-none cursor-pointer z-50 ml-auto" id="hamburgerBtn" aria-label="Open menu">
                 <span class="block w-7 h-1 mb-1 bg-ieee-purple rounded transition-all duration-300"></span>
                 <span class="block w-7 h-1 mb-1 bg-ieee-purple rounded transition-all duration-300"></span>
                 <span class="block w-7 h-1 bg-ieee-purple rounded transition-all duration-300"></span>
             </button>
-            <!-- Desktop Navigation -->
             <ul class="nav-links hidden lg:flex list-none gap-2 ml-auto" id="navLinks">
                 <li><a href="index.html" class="text-ieee-light/80 no-underline py-3 px-6 rounded-xl transition-all duration-300 font-medium hover:bg-ieee-purple/15 hover:text-ieee-light hover:-translate-y-0.5">Home</a></li>
                 <li><a href="Events.html" class="text-ieee-light/80 no-underline py-3 px-6 rounded-xl transition-all duration-300 font-medium hover:bg-ieee-purple/15 hover:text-ieee-light hover:-translate-y-0.5">Events</a></li>
@@ -791,33 +801,26 @@
                 <p id="event-message">The event has started! 🎉</p>
                 
                 <div id="default-carousel" class="relative w-full" data-carousel="slide">
-                    <!-- Carousel wrapper -->
                     <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-                         <!-- Item 1 -->
-                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                         <div class="hidden duration-700 ease-in-out" data-carousel-item>
                             <img src="WEBDEV_poster.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="WebDev.AI Event">
                         </div>
-                        <!-- Item 2 -->
                         <div class="hidden duration-700 ease-in-out" data-carousel-item>
                             <img src="gamedev_poster.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Game Dev Event">
                         </div>
-                        <!-- Item 3 -->
                         <div class="hidden duration-700 ease-in-out" data-carousel-item>
                             <img src="Cloud_Computing_poster.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Cloud Computing Event">
                         </div>
-                        <!-- Item 4 -->
                         <div class="hidden duration-700 ease-in-out" data-carousel-item>
                             <img src="blockchain_poster.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Blockchain Event">
                         </div>
                     </div>
-                    <!-- Slider indicators -->
                     <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
                         <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
                         <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
                         <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
                         <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
                     </div>
-                    <!-- Slider controls -->
                     <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
                         <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
                             <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
@@ -910,8 +913,6 @@
         });
 
 
-
-
         // Hamburger/Sidebar functionality
         const hamburgerBtn = document.getElementById('hamburgerBtn');
         const sidebar = document.getElementById('sidebar');
@@ -939,7 +940,7 @@
             <a href="https://www.instagram.com/ieeenirma/" target="_blank" rel="noopener" class="footer-link" title="Instagram">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.974.974 1.246 2.242 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.974.974-2.242 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.974-.974-1.246-2.242-1.308-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608.974-.974 2.242-1.246 3.608-1.308 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.012-4.947.07-1.276.058-2.687.334-3.682 1.329-.995.995-1.271 2.406-1.329 3.682-.058 1.28-.07 1.688-.07 4.947s.012 3.667.07 4.947c.058 1.276.334 2.687 1.329 3.682.995.995 2.406 1.271 3.682 1.329 1.28.058 1.688.07 4.947.07s3.667-.012 4.947-.07c1.276-.058 2.687-.334 3.682-1.329.995-.995 1.271-2.406 1.329-3.682-.058-1.276-.07-1.688-.07-4.947s-.012-3.667-.07-4.947c-.058-1.276-.334-2.633-1.329-3.682-.995-.995-2.406-1.271-3.682-1.329-1.28-.058-1.688-.07-4.947-.07zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z" fill="#8B5CF6"/></svg>
             </a>
-            <a href="mailto:ieee@nirmaun.ac.in" class="footer-link" title="Email">
+            <a href="mailto:ieee@nirmauni.ac.in" class="footer-link" title="Email">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;"><path d="M2 4.5A2.5 2.5 0 0 1 4.5 2h15A2.5 2.5 0 0 1 22 4.5v15A2.5 2.5 0 0 1 19.5 22h-15A2.5 2.5 0 0 1 2 19.5v-15ZM4.06 4.94A.5.5 0 0 0 4 5.5v.08l8 6.4 8-6.4V5.5a.5.5 0 0 0-.06-.06A.5.5 0 0 0 19.5 5h-15a.5.5 0 0 0-.44.44ZM20 7.92l-7.47 5.98a1 1 0 0 1-1.06 0L4 7.92V19.5c0 .28.22.5.5.5h15a.5.5 0 0 0 .5-.5V7.92Z" fill="#8B5CF6"/></svg>
             </a>
         </div>
