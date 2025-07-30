@@ -104,6 +104,13 @@
             /* Fix for iOS theme blinking */
             transform: translateZ(0);
             backface-visibility: hidden;
+            /* Control opacity and transition here via JS active class */
+            opacity: 0; 
+            transition: opacity 0.8s ease;
+        }
+
+        .grain-overlay.active {
+            opacity: 0.4;
         }
 
         .aurora-overlay {
@@ -119,6 +126,13 @@
             /* Fix for iOS theme blinking */
             transform: translateZ(0);
             backface-visibility: hidden;
+            /* Control opacity and transition here via JS active class */
+            opacity: 0; 
+            transition: opacity 0.8s ease;
+        }
+
+        .aurora-overlay.active {
+            opacity: 1;
         }
 
         .glass-card::before {
@@ -245,12 +259,12 @@
     </style>
 </head>
 <body class="font-poppins bg-black text-ieee-light min-h-screen overflow-x-hidden relative w-full">
-    <div class="grain-overlay fixed inset-0 -z-10 opacity-0 transition-opacity duration-800 pointer-events-none animate-grain-move" id="grainOverlay"></div>
-    <div class="aurora-overlay fixed inset-0 -z-10 opacity-0 transition-opacity duration-800 pointer-events-none animate-aurora-move" id="auroraOverlay"></div>
+    <div class="grain-overlay fixed inset-0 -z-10 pointer-events-none animate-grain-move" id="grainOverlay"></div>
+    <div class="aurora-overlay fixed inset-0 -z-10 pointer-events-none animate-aurora-move" id="auroraOverlay"></div>
 
     <div class="fixed top-1/2 right-5 -translate-y-1/2 z-50 flex flex-col gap-3 bg-black/25 backdrop-blur-xl border border-ieee-purple/30 rounded-2xl p-4 shadow-2xl">
         <button class="effect-btn standard active w-11 h-11 border-2 border-transparent rounded-xl bg-ieee-purple/10 cursor-pointer transition-all duration-300 flex items-center justify-center text-xl relative hover:scale-110 hover:shadow-lg hover:shadow-ieee-purple/40" onclick="setEffect('standard')" title="Standard Mode"></button>
-        <button class="effect-btn grain w-11 h-11 border-2 border-transparent rounded-xl bg-ieee-purple/10 cursor-pointer transition-all duration-300 flex items-center justify-content text-xl relative hover:scale-110 hover:shadow-lg hover:shadow-ieee-purple/40" onclick="setEffect('grain')" title="Aurora + Grain Effect"></button>
+        <button class="effect-btn grain w-11 h-11 border-2 border-transparent rounded-xl bg-ieee-purple/10 cursor-pointer transition-all duration-300 flex items-center justify-center text-xl relative hover:scale-110 hover:shadow-lg hover:shadow-ieee-purple/40" onclick="setEffect('grain')" title="Aurora + Grain Effect"></button>
     </div>
 
     <nav class="bg-black/25 backdrop-blur-xl border-b border-ieee-purple/20 py-4 px-8 fixed top-0 w-full z-40 w-full-container">
@@ -285,7 +299,8 @@
 
     <main class="mt-24 px-8 w-full sm:px-0">
         <div class="max-w-7xl mx-auto w-full">
-            <section class="text-center py-16 mb-8 animate-fade-in-up"> <h1 class="font-orbitron text-6xl md:text-5xl sm:text-4xl font-bold mb-6 gradient-text-hero animate-gradient-shift animate-float">About IEEE</h1>
+            <section class="text-center py-8 mb-8 animate-fade-in-up"> 
+                <h1 class="font-orbitron text-6xl md:text-5xl sm:text-4xl font-bold mb-6 gradient-text-hero animate-gradient-shift animate-float">About IEEE</h1>
                 <p class="text-xl font-light text-ieee-light/70 mb-8">Advancing Technology for Humanity Through Innovation and Excellence</p>
             </section>
 
@@ -347,12 +362,12 @@
                     
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-8 relative z-10 w-full">
                         <div class="glass-card bg-black/20 backdrop-blur-xl border border-ieee-purple/30 rounded-2xl p-4 sm:p-6 md:p-8 lg:p-12 w-full max-w-2xl mx-auto transition-all duration-300 relative overflow-hidden hover:-translate-y-2.5 hover:shadow-2xl hover:shadow-ieee-purple/60 hover:border-ieee-purple">
-                            <img src="IEEE_team_2.jpg" alt="IEEE Organizing Team" class="w-full h-auto max-h-72 object-cover rounded-2xl mx-auto mb-6 border-3 border-ieee-purple shadow-2xl shadow-ieee-purple/30 transition-all duration-300 hover:scale-105 hover:shadow-3xl hover:shadow-ieee-purple/40">
+                            <img src="IEEE_team_2.jpg" alt="IEEE Organizing Team" class="w-full h-auto max-h-[200px] sm:max-h-[250px] md:max-h-[300px] object-cover rounded-2xl mx-auto mb-6 border-3 border-ieee-purple shadow-2xl shadow-ieee-purple/30 transition-all duration-300 hover:scale-105 hover:shadow-3xl hover:shadow-ieee-purple/40">
                             <h3 class="font-roboto-slab text-2xl font-semibold mb-4 text-ieee-light">Our Core Committee</h3>
                             <p class="text-ieee-light/70 leading-relaxed">The dedicated individuals who meticulously plan and execute every aspect of TechnOdyssey 2025.</p>
                         </div>
                         <div class="glass-card bg-black/20 backdrop-blur-xl border border-ieee-purple/30 rounded-2xl p-4 sm:p-6 md:p-8 lg:p-12 w-full max-w-2xl mx-auto transition-all duration-300 relative overflow-hidden hover:-translate-y-2.5 hover:shadow-2xl hover:shadow-ieee-purple/60 hover:border-ieee-purple">
-                            <img src="IEEE_team.jpg" alt="IEEE Event Contributors" class="w-full h-auto max-h-72 object-cover rounded-2xl mx-auto mb-6 border-3 border-ieee-purple shadow-2xl shadow-ieee-purple/30 transition-all duration-300 hover:scale-105 hover:shadow-3xl hover:shadow-ieee-purple/40">
+                            <img src="IEEE_team.jpg" alt="IEEE Event Contributors" class="w-full h-auto max-h-[200px] sm:max-h-[250px] md:max-h-[300px] object-cover rounded-2xl mx-auto mb-6 border-3 border-ieee-purple shadow-2xl shadow-ieee-purple/30 transition-all duration-300 hover:scale-105 hover:shadow-3xl hover:shadow-ieee-purple/40">
                             <h3 class="font-roboto-slab text-2xl font-semibold mb-4 text-ieee-light">Our Community</h3>
                             <p class="text-ieee-light/70 leading-relaxed">The passionate network of IEEE members and contributors.</p>
                         </div>
@@ -385,6 +400,10 @@
             if (effectType === 'grain') {
                 document.getElementById('grainOverlay').classList.add('active');
                 document.getElementById('auroraOverlay').classList.add('active');
+            } else {
+                // Ensure standard mode disables the overlays by default
+                document.getElementById('grainOverlay').classList.remove('active');
+                document.getElementById('auroraOverlay').classList.remove('active');
             }
         }
         document.addEventListener('DOMContentLoaded', () => setEffect('standard'));
