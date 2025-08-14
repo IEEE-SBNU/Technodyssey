@@ -30,6 +30,78 @@
             -webkit-overflow-scrolling: touch;
         }
 
+        /* New Schedule Section Styles */
+        .schedule-section {
+            margin-bottom: 4.5rem;
+            padding-top: 4rem; /* Adds space above the schedule title */
+        }
+
+        .schedule-title {
+            font-family: 'Orbitron', sans-serif;
+            text-align: center;
+            font-size: 3.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #8B5CF6, #06B6D4);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 3.5rem;
+            text-shadow:
+                0 0 12px rgba(139, 92, 246, 0.8),
+                0 0 25px rgba(6, 182, 212, 0.6);
+        }
+
+        .schedule-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        .schedule-item {
+            flex: 1 1 45%;
+            max-width: 45%;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4), 0 0 10px rgba(139, 92, 246, 0.3);
+        }
+
+        .schedule-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(139, 92, 246, 0.8);
+        }
+
+        .schedule-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        @media (max-width: 900px) {
+            .schedule-title {
+                font-size: 2.8rem;
+                margin-bottom: 3rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .schedule-title {
+                font-size: 2.2rem;
+                margin-bottom: 2rem;
+            }
+            .schedule-container {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            .schedule-item {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+        }
+        /* End of New Schedule Section Styles */
+
         .grain-overlay {
             position: fixed;
             top: 0;
@@ -274,7 +346,7 @@
             backdrop-filter: blur(20px);
             border: 1px solid rgba(139, 92, 246, 0.2);
             border-radius: 20px;
-            padding: 1.2rem; /* Decreased padding */
+            padding: 1.2rem;
             cursor: pointer;
             transition: all 0.3s ease, box-shadow 0.5s ease, backdrop-filter 0.5s ease;
             position: relative;
@@ -317,7 +389,7 @@
         
         .event-poster-container {
             width: 100%;
-            margin-bottom: 1rem; /* Decreased space */
+            margin-bottom: 1rem;
             overflow: hidden;
             border-radius: 12px;
         }
@@ -348,7 +420,7 @@
             font-size: 1.9rem;
             font-weight: 700;
             color: #E8E3F3;
-            margin-bottom: 0.5rem; /* Decreased space */
+            margin-bottom: 0.5rem;
             text-align: center;
             position: relative;
             z-index: 2;
@@ -358,10 +430,10 @@
         .event-tagline {
             font-size: 1.25rem;
             color: #00FFFF;
-            margin-bottom: 1rem; /* Decreased space */
+            margin-bottom: 1rem;
             line-height: 1.4;
             text-align: center;
-            min-height: 40px; /* Decreased minimum height */
+            min-height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -374,12 +446,12 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 0.5rem; /* Decreased space between items */
+            gap: 0.5rem;
             margin-top: auto;
-            margin-bottom: 1rem; /* Decreased space */
+            margin-bottom: 1rem;
             position: relative;
             z-index: 2;
-            padding-top: 1rem; /* Decreased padding */
+            padding-top: 1rem;
             border-top: 1px solid rgba(232, 227, 243, 0.15);
             width: 100%;
         }
@@ -615,21 +687,21 @@
             }
 
             .event-card {
-                padding: 1rem; /* Decreased padding for mobile */
+                padding: 1rem;
             }
             .event-name {
                 font-size: 1.6rem;
-                margin-bottom: 0.4rem; /* Decreased space for mobile */
+                margin-bottom: 0.4rem;
             }
             .event-tagline {
                 font-size: 1rem;
-                min-height: 35px; /* Decreased minimum height for mobile */
-                margin-bottom: 0.8rem; /* Decreased space for mobile */
+                min-height: 35px;
+                margin-bottom: 0.8rem;
             }
             .event-details-group {
-                gap: 0.4rem; /* Decreased space for mobile */
-                margin-bottom: 0.8rem; /* Decreased space for mobile */
-                padding-top: 0.6rem; /* Decreased padding for mobile */
+                gap: 0.4rem;
+                margin-bottom: 0.8rem;
+                padding-top: 0.6rem;
             }
             .event-detail-item {
                 font-size: 1rem;
@@ -687,7 +759,9 @@
             <ul class="nav-links hidden lg:flex list-none gap-2 ml-auto" id="navLinks">
                 <li><a href="index.html" class="text-ieee-light/80 no-underline py-3 px-6 rounded-xl transition-all duration-300 font-medium hover:bg-ieee-purple/15 hover:text-ieee-light hover:-translate-y-0.5">Home</a></li>
                 <li><a href="Events.html" class="text-ieee-light/80 no-underline py-3 px-6 rounded-xl transition-all duration-300 font-medium hover:bg-ieee-purple/15 hover:text-ieee-light hover:-translate-y-0.5">Events</a></li>
+                <li><a href="#schedule-section" class="text-ieee-light/80 no-underline py-3 px-6 rounded-xl transition-all duration-300 font-medium hover:bg-ieee-purple/15 hover:text-ieee-light hover:-translate-y-0.5">Schedule</a></li>
                 <li><a href="About.html" class="text-ieee-light/80 no-underline py-3 px-6 rounded-xl transition-all duration-300 font-medium hover:bg-ieee-purple/15 hover:text-ieee-light hover:-translate-y-0.5">About Us</a></li>
+                
             </ul>
         </div>
         <div class="sidebar hidden fixed top-0 right-0 w-56 h-screen bg-ieee-dark/98 shadow-2xl z-50 flex flex-col items-start p-8 pt-6" id="sidebar">
@@ -695,7 +769,9 @@
             <ul class="list-none p-0 mt-8 w-full">
                 <li class="mb-6"><a href="index.html" class="text-ieee-light text-xl no-underline font-semibold block py-2 transition-colors duration-200 hover:text-ieee-purple">Home</a></li>
                 <li class="mb-6"><a href="Events.html" class="text-ieee-light text-xl no-underline font-semibold block py-2 transition-colors duration-200 hover:text-ieee-purple">Events</a></li>
+                <li class="mb-6"><a href="#schedule-section" class="text-ieee-light text-xl no-underline font-semibold block py-2 transition-colors duration-200 hover:text-ieee-purple">Schedule</a></li>
                 <li class="mb-6"><a href="About.html" class="text-ieee-light text-xl no-underline font-semibold block py-2 transition-colors duration-200 hover:text-ieee-purple">About Us</a></li>
+                
             </ul>
         </div>
     </nav>
@@ -857,7 +933,19 @@
                     </div>
                 </div>
             </div>
-        </div>
+
+            <div id="schedule-section" class="schedule-section">
+                <h2 class="day-title">Schedule of the Event</h2>
+                <div class="schedule-container">
+                    <div class="schedule-item">
+                        <img src="Aug22.png" alt="Schedule for Day 1">
+                    </div>
+                    <div class="schedule-item">
+                        <img src="Aug23.png" alt="Schedule for Day 2">
+                    </div>
+                </div>
+            </div>
+            </div>
     </main>
 
     <script>
