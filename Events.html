@@ -411,12 +411,10 @@
         .event-card.sold-out {
             pointer-events: none; /* Disables all hover effects */
             cursor: default;
-            backdrop-filter: blur(5px);
-            
         }
 
         .event-card.sold-out .event-poster {
-            filter: blur(3px) brightness(0.6); /* Blurs and darkens the image */
+            filter: blur(2px) brightness(0.7); /* Blurs and darkens the image */
             opacity: 0.6; /* Makes the image semi-transparent */
             transition: none; /* No scaling effect */
         }
@@ -440,11 +438,26 @@
             text-shadow: 0 0 10px rgba(255, 51, 51, 0.8), 0 0 20px rgba(255, 51, 51, 0.6);
             white-space: nowrap;
         }
-
-        .event-card.sold-out:hover::before {
-            opacity: 0; /* Remove the hover overlay to keep the sold out effect clean */
-        }
         
+        /* The "Sold Out" button style */
+        .sold-out-btn {
+            background: #444; /* Darker gray background */
+            color: #bbb;
+            cursor: not-allowed;
+            text-decoration: none;
+            padding: 0.6rem 1.8rem;
+            border: none;
+            border-radius: 14px;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 250px;
+            width: 100%;
+        }
+
         .event-description {
             display: flex;
             flex-direction: column;
@@ -546,24 +559,6 @@
             box-shadow: 0 10px 22px rgba(139, 92, 246, 0.4);
         }
 
-        .sold-out-btn {
-            background: #444; /* Darker gray background */
-            color: #bbb;
-            cursor: not-allowed;
-            text-decoration: none;
-            padding: 0.6rem 1.8rem;
-            border: none;
-            border-radius: 14px;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            max-width: 250px;
-            width: 100%;
-        }
-        
         .hamburger {
             display: none;
             flex-direction: column;
@@ -872,7 +867,7 @@
                             <div class="event-detail-item"><span class="icon">⏰</span> <span>2:30 PM - 5:30 PM</span></div>
                         </div>
                         <div class="event-btn-group">
-                             <a href="#" class="sold-out-btn">Sold Out</a>
+                            <button class="sold-out-btn">Sold Out</button>
                         </div>
                     </div>
 
