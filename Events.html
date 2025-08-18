@@ -392,6 +392,7 @@
             margin-bottom: 1rem;
             overflow: hidden;
             border-radius: 12px;
+            position: relative; /* Added for proper positioning of the overlay text */
         }
 
         .event-poster {
@@ -424,7 +425,7 @@
         }
         
         /* The text overlay for "Sold Out" */
-        .event-card.sold-out::after {
+        .event-card.sold-out .event-poster-container::after {
             content: "No Seats Left";
             position: absolute;
             top: 50%;
@@ -710,8 +711,9 @@
                 margin-bottom: 2rem;
                 padding: 1rem;
             }
-            .event-card.sold-out::after {
-                font-size: 2rem; /* Adjusted for smaller screens */
+            /* Media query specific for the sold-out text */
+            .event-card.sold-out .event-poster-container::after {
+                font-size: 1.5rem;
             }
         }
 
@@ -772,6 +774,10 @@
                 max-width: 100%;
                 padding: 0.9rem 0.6rem;
                 font-size: 1rem;
+            }
+            /* Media query specific for the sold-out text */
+            .event-card.sold-out .event-poster-container::after {
+                font-size: 1.2rem;
             }
         }
 
